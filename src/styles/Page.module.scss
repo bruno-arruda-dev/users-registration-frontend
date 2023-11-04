@@ -1,0 +1,29 @@
+@import './Globals.scss';
+
+.title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: $bg-gray-900;
+    padding: $p-4;
+
+    .main {
+        margin: $m-9 0;
+        width: 100%;
+
+        h1 {
+            font-size: $text-4xl;
+            color: $text-white;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .title {
+
+        .main {
+            max-width: 42rem;
+        }
+    }
+}
