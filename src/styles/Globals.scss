@@ -3,10 +3,13 @@ $text-4xl: 2.441rem;
 
 //FONT BOLD
 $font-medium: 500;
+$font-bold: 700;
 
 // COLORS
 $bg-gray-900: #111827;
 $bg-green-500: #22c55e;
+$bg-red-500: #ef4444;
+$bg-white: #fff;
 $text-white: #fff;
 
 // SPACERS
@@ -14,6 +17,7 @@ $text-white: #fff;
 $m-9: 2.5rem;
 $m-6: 1.5rem;
 $m-5: 1.25rem;
+$w-7: 1.75rem;
 
     // Paddings
 $p-4: 1rem;
@@ -21,3 +25,4 @@ $p-2: .5rem;
 
 // RADIUS
 $default-rounded: 0.25rem;
+$secondary-rounded: 0.5rem;
