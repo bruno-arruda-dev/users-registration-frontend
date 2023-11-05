@@ -15,9 +15,7 @@ export const RefreshProvider = ({children}: {children: React.ReactNode;}): JSX.E
     const [refreshTrigger, setRefreshTrigger] = useState(0);
 
     const handleRefreshCustomersList = async () => {
-        const response = await api.get("/customers")
-        const listCustomersLength = await response.data;
-        setRefreshTrigger(listCustomersLength.length);
+        setRefreshTrigger(refreshTrigger + 1);
     }
 
     return (
