@@ -1,5 +1,6 @@
 'use client'
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useContext} from 'react';
+import {RefreshContext} from '../../context/RefreshContext';
 import CustomerCard from '../CustomerCard/CustomerCard';
 import styles from './CustomersList.module.scss';
 import {api} from '../../services/api';
@@ -14,11 +15,13 @@ type CustomerProps = {
 
 const CustomersList = () => {
     const [customers, setCustomers] = useState<CustomerProps[]>([]);
+    const {refreshTrigger} = useContext(RefreshContext);
 
     // Call loadCustomers when component mount
     useEffect(() => {
         loadCustomers();
-    }, [])
+        console.log(`Tamanho do refreshTrigger ${refreshTrigger}`)
+    }, [refreshTrigger])
 
     // Load all customers from API
     const loadCustomers = async () => {

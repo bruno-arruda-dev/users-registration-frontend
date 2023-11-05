@@ -1,10 +1,12 @@
 'use client'
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useContext } from 'react';
 import {api} from '../../services/api'
 import Input from '../Input/Input';
 import styles from './RegisterForm.module.scss';
+import {RefreshContext} from '../../context/RefreshContext'
 
 const RegisterForm = () => {
+    const {handleRefreshCustomersList} = useContext(RefreshContext);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
 
@@ -22,6 +24,7 @@ const RegisterForm = () => {
         });
 
         console.log(response.data);
+        handleRefreshCustomersList();
 
     }
 

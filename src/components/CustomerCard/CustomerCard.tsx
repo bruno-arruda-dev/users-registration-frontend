@@ -1,4 +1,6 @@
+import {useContext} from 'react';
 import styles from './CustomerCard.module.scss';
+import {RefreshContext} from '../../context/RefreshContext';
 import {api} from '../../services/api';
 import {FiTrash} from 'react-icons/fi';
 
@@ -11,7 +13,9 @@ type CustomerCardProps = {
 }
 
 const CustomerCard = ({ id, name, email, status, created_at }: CustomerCardProps) => {
-
+    
+    const {handleRefreshCustomersList} = useContext(RefreshContext);
+    
     const handleDeleteCustomer = async () => {
         console.log(`Deletando cliente: ${name}/${id}`);
 
@@ -22,7 +26,9 @@ const CustomerCard = ({ id, name, email, status, created_at }: CustomerCardProps
         })
 
         console.log(response);
-        
+
+        handleRefreshCustomersList();
+
     }
 
     return (
