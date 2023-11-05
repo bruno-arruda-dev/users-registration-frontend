@@ -20,7 +20,6 @@ const CustomersList = () => {
     // Call loadCustomers when component mount
     useEffect(() => {
         loadCustomers();
-        console.log(`Tamanho do refreshTrigger ${refreshTrigger}`)
     }, [refreshTrigger])
 
     // Load all customers from API
