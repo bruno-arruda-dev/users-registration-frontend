@@ -1,5 +1,5 @@
 'use client'
-import {useRef} from 'react';
+import {useRef, useEffect} from 'react';
 import styles from './Input.module.scss';
 
 type InputProps = {
@@ -7,15 +7,25 @@ type InputProps = {
     type: 'text' | 'email';
     placeholder: string;
     onChange: (value: string) => void;
+    registerCounter: number;
 }
 
-const Input = ({ label, type, placeholder, onChange }: InputProps) => {
+const Input = ({ label, type, placeholder, onChange, registerCounter }: InputProps) => {
 
     const inputRef = useRef<HTMLInputElement>(null);
 
     const handleInputChange = () => {
         onChange(inputRef.current?.value ?? "");
     }
+
+    useEffect(() => {
+        
+        if (inputRef.current) {
+            inputRef.current.value = ""; // Clear input values
+            onChange(""); // Update input state 
+        }
+
+    }, [registerCounter]);
 
     return (
         <div className={`${styles['Input']}`}>

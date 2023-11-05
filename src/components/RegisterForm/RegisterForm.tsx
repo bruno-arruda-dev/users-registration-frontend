@@ -9,6 +9,7 @@ const RegisterForm = () => {
     const {handleRefreshCustomersList} = useContext(RefreshContext);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [registerCounter, setRegisterCounter] = useState(0);
 
     const handleSubmit = async (e: FormEvent) => {
         event?.preventDefault(); // Prevent page update after push submit button
@@ -23,8 +24,8 @@ const RegisterForm = () => {
             email: email
         });
 
-        console.log(response.data);
         handleRefreshCustomersList();
+        setRegisterCounter(registerCounter + 1);
 
     }
 
@@ -34,15 +35,17 @@ const RegisterForm = () => {
             <Input
                 label='Nome:'
                 type='text'
-                placeholder='Digite seu nome...'
+                placeholder='Nome do cliente'
                 onChange={setName}
-            />
+                registerCounter={registerCounter}
+                />
 
             <Input
                 label='Email:'
                 type='email'
-                placeholder='Digite seu email...'
+                placeholder='Email do cliente'
                 onChange={setEmail}
+                registerCounter={registerCounter}
             />
 
             <input 
