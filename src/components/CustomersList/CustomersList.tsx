@@ -32,6 +32,7 @@ const CustomersList = () => {
         {customers.map( (customer) => (
             <CustomerCard
                 key={customer.id}
+                id={customer.id}
                 name={customer.name}
                 email={customer.email}
                 status={customer.status}
